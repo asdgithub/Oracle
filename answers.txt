@@ -1,0 +1,28 @@
+(a) 2 commits have been done to the repo (before the commit including this file, which would be 3 commits).
+
+(b) .gitignore was modified last on August 20th, when it was created.
+
+(c) Files in repo on 8/21 at 11pm:
+	.gitattributes
+	README.txt
+	.classpath
+	.gitignore
+	.project
+	HardwoodSeller.java
+	WoodItem.java
+	REMOVE.txt
+
+(d) File modifications:
+	HardwoodSeller.java - 1 modification, creation
+	WoodItem.java - 2 modifications, creation and variable name changes	
+
+(e)	Difference between log and status:
+	git-log - Show commit logs. The command takes options applicable to the git rev-list command to control what is shown and how, and options applicable to the git diff-* commands to control how the changes each commit introduces are shown.
+	
+	git-status - Show the working tree status. Displays paths that have differences between the index file and the current HEAD commit, paths that have differences between the working tree and the index file, and paths in the working tree that are not tracked by Git (and are not ignored by gitignore[5]).
+
+(f) git log --follow main.java would be the command used to see the commits where “main.java” was one of the commited files, assuming the file is located in the root directory.
+
+(g) git log --grep=transaction would be the command used to see the commits whose commit message contains the word “transaction”.
+
+(h) git log --author=Lauren --since="2014-01-05" --until="2015-06-15" would be the command used to see the commits made by “Lauren” between 01/05/2014 and 06/14/2015
