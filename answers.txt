@@ -1,4 +1,4 @@
-(a) 2 commits have been done to the repo (before the commit including this file, which would be 3 commits).
+(a) 8 commits have been done to the repo (before the commit including this file, which would be 9 commits).
 
 (b) .gitignore was modified last on August 20th, when it was created.
 
