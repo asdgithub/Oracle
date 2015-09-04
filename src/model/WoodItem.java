@@ -68,7 +68,7 @@ public class WoodItem {
 	 */
 	@Override
 	public String toString() {	
-		return "";
+		return type + " at " + price + " per BF";
 	}
 	
 }

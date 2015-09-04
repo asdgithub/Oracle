@@ -60,13 +60,14 @@ public class HardwoodSeller {
 		while(count < items.size() && items.size() == boardFoot.size()){
 			if(boardFoot.get(count) > 1000){
 				System.out.print(items.get(count).toString() + " * " + 1000 + " BF (Max Purchase: 1000 BF)\n");
+				total += items.get(count).getPrice() * 1000;
 			}else if(boardFoot.get(count) <= 0){
 				System.out.print(items.get(count).toString() + " * " + 0 + " BF (Min Purchase: 1 BF) - VOID\n");
+				total += items.get(count).getPrice() * 0;
 			}else{
 				System.out.print(items.get(count).toString() + " * " + boardFoot.get(count) + " BF\n");
+				total += items.get(count).getPrice() * boardFoot.get(count);
 			}
-				
-			total += items.get(count).getPrice() * boardFoot.get(count);	
 			count++;
 		}
 
