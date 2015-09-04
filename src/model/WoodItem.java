@@ -4,14 +4,14 @@
 package model;
 
 /**
- * @author USER
+ * @author Ashleigh Davis
  *
  */
 public class WoodItem {
 
 	String type;
-	Double baseDeliveryTime;
-	Double price;
+	double baseDeliveryTime;
+	double price;
 	
 	/**
 	 * Default constructor 
@@ -26,11 +26,11 @@ public class WoodItem {
 	 * Constructor of a WoodItem element with parameters
 	 * @param type Name of the wood type
 	 * @param daseDeliveryTime base delivery time
-	 * @param price price per Bare Foot
+	 * @param price price per Board Foot
 	 */
-	public WoodItem(String type, Double daseDeliveryTime, Double price) {
+	public WoodItem(String type, double baseDeliveryTime, double price) {
 		this.type = type;
-		this.baseDeliveryTime = daseDeliveryTime;
+		this.baseDeliveryTime = baseDeliveryTime;
 		this.price = price;
 	}
 
@@ -48,17 +48,17 @@ public class WoodItem {
 	 * 
 	 * @return the baseDeliverytime
 	 */
-	public Double getDaseDeliveryTime() {
+	public double getBaseDeliveryTime() {
 		return baseDeliveryTime;
 	}
 
 	/**
 	 * 
-	 * Get the price per Bare Foot
+	 * Get the price per Board Foot
 	 * 
-	 * @return the price for 1 Bare Foot of this WoodItem
+	 * @return the price for 1 Board Foot of this WoodItem
 	 */
-	public Double getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
