@@ -31,7 +31,9 @@ public class HardwoodSeller {
 
 		String filePath;
 
-		int maxDelivery;
+		int count = 0;
+
+		double total = 0.00;
 
 		Scanner in = new Scanner(System.in);
 
@@ -46,6 +48,25 @@ public class HardwoodSeller {
 
 		HardwoodSeller h = new HardwoodSeller();
 		h.readInputFile(filePath);
+
+		System.out.println("###############################################################################");
+		System.out.println("\nNEW ORDER");
+		System.out.println("Name: " + h.buyerName);
+		System.out.println("Address: " + h.buyerAddr);
+		System.out.println("Date: " + h.buyerDate + "\n");
+		System.out.println("Items:");
+
+		//Loop through items: Display type, BF purchased, and price per BF
+		while(count < items.size() && items.size() == boardFoot.size()){
+
+			count++;
+		}
+
+
+		System.out.println("\nEstimated delivery time: " + h.deliveryTime() + " hours");
+		System.out.println("\nTOTAL: $" + total + "\n");
+		System.out.println("###############################################################################");
+
 
 		items.clear();
 		boardFoot.clear();
@@ -135,11 +156,11 @@ public class HardwoodSeller {
 				items.add(theItem);
 
 				if(bf > 1000){
-					System.out.println("Too much requested. Placing order for 1000 BF of " + woodItemInfo[0]);
+//					System.out.println("Too much requested. Placing order for 1000 BF of " + woodItemInfo[0]);
 					boardFoot.add(1000);
 				}
 				if(bf <= 0){
-					System.out.println("0 BF of " + woodItemInfo[0]);
+//					System.out.println("0 BF of " + woodItemInfo[0]);
 					boardFoot.add(0);
 				}
 
@@ -163,8 +184,56 @@ public class HardwoodSeller {
 
 	}
 	
-	public Double deliveryTime(){
-		Double deliveryETA = 0.0;
+	public double deliveryTime(){
+		double deliveryETA = 0.0;
+
+		int count = 0;
+		double multiplier = 0.00;
+
+		while(count < items.size()){
+			if(boardFoot.get(count) == 0){
+
+			}
+
+			if(1 <= boardFoot.get(count) && boardFoot.get(count) <= 100){
+				multiplier = 1;
+			}
+
+			if(101 <= boardFoot.get(count) && boardFoot.get(count) <= 200){
+				multiplier = 2;
+			}
+
+			if(201 <= boardFoot.get(count) && boardFoot.get(count) <= 300){
+				multiplier = 3;
+			}
+
+			if(301 <= boardFoot.get(count) && boardFoot.get(count) <= 400){
+				multiplier = 4;
+			}
+
+			if(401 <= boardFoot.get(count) && boardFoot.get(count) <= 500){
+				multiplier = 5;
+			}
+
+			if(501 <= boardFoot.get(count) && boardFoot.get(count) <= 1000){
+				multiplier = 5.5;
+			}
+
+			if(boardFoot.get(count) > 1000){
+				multiplier = 5.5;
+			}
+
+			if(count == 0){
+				deliveryETA = items.get(count).getBaseDeliveryTime() * multiplier;
+			}
+
+			if((items.get(count).getBaseDeliveryTime() * multiplier) > deliveryETA){
+				deliveryETA = items.get(count).getBaseDeliveryTime() * multiplier;
+			}
+
+			count++;
+		}
+
 		return deliveryETA;
 	}
 	
