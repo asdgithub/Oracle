@@ -58,7 +58,15 @@ public class HardwoodSeller {
 
 		//Loop through items: Display type, BF purchased, and price per BF
 		while(count < items.size() && items.size() == boardFoot.size()){
-
+			if(boardFoot.get(count) > 1000){
+				System.out.print(items.get(count).toString() + " * " + 1000 + " BF (Max Purchase: 1000 BF)\n");
+			}else if(boardFoot.get(count) <= 0){
+				System.out.print(items.get(count).toString() + " * " + 0 + " BF (Min Purchase: 1 BF) - VOID\n");
+			}else{
+				System.out.print(items.get(count).toString() + " * " + boardFoot.get(count) + " BF\n");
+			}
+				
+			total += items.get(count).getPrice() * boardFoot.get(count);	
 			count++;
 		}
 
@@ -155,15 +163,6 @@ public class HardwoodSeller {
 
 				items.add(theItem);
 
-				if(bf > 1000){
-//					System.out.println("Too much requested. Placing order for 1000 BF of " + woodItemInfo[0]);
-					boardFoot.add(1000);
-				}
-				if(bf <= 0){
-//					System.out.println("0 BF of " + woodItemInfo[0]);
-					boardFoot.add(0);
-				}
-
 				boardFoot.add(bf);
 			}
 
@@ -188,38 +187,40 @@ public class HardwoodSeller {
 		double deliveryETA = 0.0;
 
 		int count = 0;
+		int bf;
 		double multiplier = 0.00;
 
 		while(count < items.size()){
-			if(boardFoot.get(count) == 0){
+			bf = boardFoot.get(count);
+			if(bf <= 0){
 
 			}
 
-			if(1 <= boardFoot.get(count) && boardFoot.get(count) <= 100){
+			if(1 <= bf && bf <= 100){
 				multiplier = 1;
 			}
 
-			if(101 <= boardFoot.get(count) && boardFoot.get(count) <= 200){
+			if(101 <= bf && bf <= 200){
 				multiplier = 2;
 			}
 
-			if(201 <= boardFoot.get(count) && boardFoot.get(count) <= 300){
+			if(201 <= bf && bf <= 300){
 				multiplier = 3;
 			}
 
-			if(301 <= boardFoot.get(count) && boardFoot.get(count) <= 400){
+			if(301 <= bf && bf <= 400){
 				multiplier = 4;
 			}
 
-			if(401 <= boardFoot.get(count) && boardFoot.get(count) <= 500){
+			if(401 <= bf && bf <= 500){
 				multiplier = 5;
 			}
 
-			if(501 <= boardFoot.get(count) && boardFoot.get(count) <= 1000){
+			if(501 <= bf && bf <= 1000){
 				multiplier = 5.5;
 			}
 
-			if(boardFoot.get(count) > 1000){
+			if(bf > 1000){
 				multiplier = 5.5;
 			}
 
